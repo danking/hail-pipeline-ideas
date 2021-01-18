@@ -43,7 +43,7 @@ def fvcr(aggregations: List[Aggregation],
                 ~(mt[name].excluded_before),
                 hl.agg.hist(mt[name].call_rate, 0.0, 1.0, 20)))
 
-    def plot(data: hl.Struct):
+    def plot(data: hl.Struct, c, e):
         excluded_variants = data.excluded_variants
         n_excluded_variants = len(excluded_variants)
         plot_agg_hist(data.call_rate_hist)
@@ -78,7 +78,7 @@ def fscr(aggregations: List[Aggregation],
                 ~(mt[name].excluded_before),
                 hl.agg.hist(mt[name].call_rate, 0.0, 1.0, 20)))
 
-    def plot(data: hl.Struct):
+    def plot(r, data: hl.Struct, e):
         excluded_samples = data.excluded_samples
         n_excluded_samples = len(excluded_samples)
         plot_agg_hist(data.call_rate_hist)
